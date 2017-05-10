@@ -3,22 +3,26 @@ function Thermostat() {
   this.current_temperature = this.DEFAULT_TEMP;
   this.MIN = 10;
   this.powersaver = true;
+  // this.max = MAX_SAVER_ON;
   this.MAX_SAVER_ON = 25;
   this.MAX_SAVER_OFF = 32;
-  this
+  this.check_energy_usage();
+  this._check_max();
 };
 
 Thermostat.prototype.uptemp = function() {
-  this.check_temp();
+  this._check_temp();
   this.current_temperature++;
+  this.check_energy_usage();
 };
 
 Thermostat.prototype.downtemp = function() {
-  this.check_temp();
+  this._check_temp();
   this.current_temperature--;
+  this.check_energy_usage();
 };
 
-Thermostat.prototype.check_temp = function() {
+Thermostat.prototype._check_temp = function() {
   this._check_max();
   if (this.current_temperature <= this.MIN) throw "Temp is too low";
   if (this.current_temperature >= this.max) throw "Temp is too high";
@@ -43,10 +47,11 @@ Thermostat.prototype._check_max = function() {
 
 Thermostat.prototype.temp_reset = function() {
   this.current_temperature = this.DEFAULT_TEMP;
+  this.check_energy_usage();
 }
 
-Thermostat.prototype.energy_usage = function() {
-  if (this.current_temperature < 18) {return "low_usage"};
-  if (this.current_temperature >= 18 && this.current_temperature < 25) {return "medium_usage"};
-  if (this.current_temperature >= 25) {return "high_usage"};
+Thermostat.prototype.check_energy_usage = function() {
+  if (this.current_temperature < 18) {this.energy_usage = "low_usage"};
+  if (this.current_temperature >= 18 && this.current_temperature < 25) {this.energy_usage = "medium_usage"};
+  if (this.current_temperature >= 25) {this.energy_usage = "high_usage"};
 }

@@ -48,17 +48,20 @@ it("Will not let temperature go below 10", function () {
 
   it("Will state low energy usage when temperature is 17", function () {
     thermostat.current_temperature = 17;
-    expect(thermostat.energy_usage()).toEqual("low_usage");
+    thermostat.check_energy_usage();
+    expect(thermostat.energy_usage).toEqual("low_usage");
   });
 
   it("Will state medium energy usage when temperature is 23", function () {
     thermostat.current_temperature = 23;
-    expect(thermostat.energy_usage()).toEqual("medium_usage");
+    thermostat.check_energy_usage();
+    expect(thermostat.energy_usage).toEqual("medium_usage");
   });
 
   it("Will state high energy usage when temperature is 28", function () {
     thermostat.current_temperature = 28;
-    expect(thermostat.energy_usage()).toEqual("high_usage");
+    thermostat.check_energy_usage();
+    expect(thermostat.energy_usage).toEqual("high_usage");
   });
 
   it("Switches the power saver OFF >> Max temp 32 and powersaver will be False", function() {
@@ -73,7 +76,5 @@ it("Will not let temperature go below 10", function () {
     expect(thermostat.max).toEqual(thermostat.MAX_SAVER_ON);
     expect(thermostat.powersaver).toEqual(true);
   });
-
-
 
 });
