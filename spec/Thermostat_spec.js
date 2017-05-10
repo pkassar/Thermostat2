@@ -25,4 +25,18 @@ describe("Thermostat", function() {
       thermostat.downtemp()}).toThrow("Temp is too low");
   });
 
+  it("Will not let temperature go above 25 on powersaver ON", function () {
+    thermostat.temperature = 25;
+    expect(function(){
+      thermostat.uptemp()}).toThrow("Temp is too high");
+  });
+
+  it("Will not let temperature go above 32 on powersaver OFF", function () {
+    thermostat.temperature = 32;
+    thermostat.powersaver = false;
+    expect(function(){
+      thermostat.uptemp()}).toThrow("Temp is too high");
+  });
+
+
 });
