@@ -1,7 +1,9 @@
 $( document ).ready(function() {
   th1 = new Thermostat();
 
-$('#current_temp').text(th1.current_temperature);
+$('#current_temp').text('The thermostat is now set at ' + th1.current_temperature+ ' °C');
+$('#min_temp').text('the min temperature is ' + th1.MIN + ' °C');
+$('#max_temp').text('the current max temperature is ' + th1.max + ' °C');
 
 $('#uptemp').click(function() {
    th1.uptemp();
