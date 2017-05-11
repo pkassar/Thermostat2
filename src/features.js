@@ -20,9 +20,14 @@ $('#temp_reset').click(function() {
    $('#current_temp').text(th1.current_temperature);
 });
 
+$("#power_saver_on").click(function() {
+  th1.saver_switch();
+});
+
 $.get("http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=8d768cdf677e80b711b9f48b07da13fc&units=metric", function(data) {
   $("#weather").text("London is " + data.main.temp + '°C    ☺');
 });
+
 
 
 //insert before end
