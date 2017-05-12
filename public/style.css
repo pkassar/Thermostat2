@@ -1,0 +1,29 @@
+body {
+  font-family: "Times New Roman", Times;
+  text-align: center;
+}
+
+.powersaver {
+  color: #ff4039;
+  background-color: #abc6da
+}
+
+.button_panel {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #rrr;
+  background-color: #9CAF59;
+  border: none;
+  border-radius: 120px;
+  box-shadow: 0 6px #700;
+}
+.button_panel:hover {background-color: #3e8e41}
+
+.button_panel:active {
+  background-color: #563;
+  box-shadow: 0 5px #666;
+  transform: translateY(40px);
+}

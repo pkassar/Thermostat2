@@ -1,43 +1,43 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <script
   src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
+  ></script>
   <script src="src/Thermostat.js"></script>
   <script src="src/features.js"></script>
+  <link rel="stylesheet" href="./public/style.css">
 
-
- <title>Thermostat_Challenge</title>
+  <title>Thermostat Challenge</title>
   <meta name="description" content="Thermostat in JS">
   <meta name="author" content="Makers">
 </head>
 
 <body>
+
+  <div id = "current_temp" ></div>
+  <div id = "weather" ></div>
+  <div id = "min_temp" ></div>
+  <div id = "max_temp"></div>
+
   <div>
-    <ul>
-      <li id = "current_temp" ></li>
-      <li id = "weather" ></li>
-      <li id = "min_temp" ></li>
-      <li id = "max_temp"></li>
-    </ul>
-  </div>
-  <div>
-    <button type="button" id="uptemp"> temperature up</button>
-    <button type="button" id="downtemp">temperature down</button>
+    <button type="button" class="button_panel" id="uptemp"> temperature up</button>
+    <button type="button" class="button_panel" id="downtemp">temperature down</button>
   </div>
   <div>
 
-    <button type="button" id="temp_reset"> Reset temperature</button>
-  </div>
+
+
   <div>
     <h5>Power saver mode: </h5>
-    <form >
+    <form class="powersaver" >
       <input type="radio" name="power_saver_mode" value="on" id="power_saver_on"  checked> ON<br>
       <input type="radio" name="power_saver_mode" value="off" id="power_saver_off"  > OFF<br>
     </form>
+</div>
 
-  </div>
+  <button type="button" class="button_panel" id="temp_reset"> Reset temperature</button>
+
 </body>
 </html>
